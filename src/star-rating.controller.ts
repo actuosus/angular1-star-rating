@@ -410,6 +410,11 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
             this.showHalfStars = changes.showHalfStars.currentValue;
         }
 
+        //boolean
+        if (valueChanged('showHoverStars', changes)) {
+            this.showHoverStars = changes.showHoverStars.currentValue;
+        }
+
         if (valueChanged('space', changes)) {
             this.space = changes.space.currentValue;
         }
