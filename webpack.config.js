@@ -1,9 +1,5 @@
 var path = require('path');
-
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('./node_modules/html-webpack-plugin');
-var nodeExternals = require('webpack-node-externals');
-
 var base_c = require('./chore/chore.config');
 
 module.exports = function makeWebpackConfig() {
@@ -17,13 +13,13 @@ module.exports = function makeWebpackConfig() {
 
     config.resolve = {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['', '.html', '.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js']
-        , root: __dirname
+        extensions: ['.html', '.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js'],
+        // root: __dirname
     };
 
     //Exclude all external files from bundle
     config.externals = {
-      'angular' : 'angular'
+        'angular': 'angular'
     };
 
     config.entry = {
@@ -31,49 +27,49 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.output = {
-        filename: "index.js"
-        , path: path.join(__dirname, base_c.dist)
+        filename: 'index.js',
+        path: path.join(__dirname, base_c.dist)
     };
-    //config.output.libraryTarget = "amd";
-    //config.output.filename = "[name].js";
-
 
     // Source maps support
     config.devtool = 'source-map';
 
     config.module = {
-        /*preLoaders: [
-         {
-         test: /\.ts$/,
-         loader: 'baggage?[file].html&[file].css'
-         }
-         ],*/
         loaders: [
-             {test: /\.css$/, loader: "style!css"}
-            , {test: /\.scss$/, loader: "style!css!sass"}
+            {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
+            },
             // specify option using query
-            , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
-            , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
-            , {
+            {
+                test: /\.tsx?$/,
+                // exclude: '*.jasmine.ts',
+                loader: 'ts-loader'
+            },
+            {
+                test: /\.html$/,
+                loader: 'ngtemplate-loader?relativeTo=' + __dirname + '/!html-loader'
+            },
+            {
                 test: [/\.svg/],
-                loader: 'file?name=assets/images/[name].[ext]'
+                loader: 'file-loader?name=assets/images/[name].[ext]'
             }
-            //inline base64 URLs for <=8k images, direct URLs for the rest
-            //, {test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
         ]
     };
 
-    config.sassLoader = {
-        outputStyle: 'compressed'
-    };
+    // config.sassLoader = {
+    //     outputStyle: 'compressed'
+    // };
 
     config.plugins = [
-        new webpack.optimize.DedupePlugin()
-        , new webpack.optimize.UglifyJsPlugin({
-            compress: {warnings: false}
-            , comments: false
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {warnings: false},
+            comments: false
         })
-        /**/
     ];
 
     return config;

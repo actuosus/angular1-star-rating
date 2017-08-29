@@ -1,7 +1,9 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "declaration":true,
     "target": "es5",
+    "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "./"
   },
@@ -9,5 +11,8 @@
      "./src/**/*.spec.ts",
      "examples",
      "node_modules"
+  ],
+  "files": [
+    "./src/require.d.ts"
   ]
 }

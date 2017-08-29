@@ -1,4 +1,4 @@
-import {StarRatingController} from "./star-rating.controller";
+import {StarRatingController} from './star-rating.controller';
 import starRatingTpl = require('./star-rating.tpl.html');
 
 export class StarRatingComponent implements ng.IComponentOptions {

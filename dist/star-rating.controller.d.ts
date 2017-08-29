@@ -1,4 +1,4 @@
-import { IStarRatingCompBindings, starRatingSizes, starRatingSpeed, starRatingPosition, starRatingStarTypes, starRatingColors, starRatingStarSpace, IStarRatingOnClickEvent, IStarRatingOnUpdateEvent, IStarRatingOnHoverEvent } from "star-rating.structs";
+import { IStarRatingCompBindings, starRatingSizes, starRatingSpeed, starRatingPosition, starRatingStarTypes, starRatingColors, starRatingStarSpace, IStarRatingOnClickEvent, IStarRatingOnUpdateEvent, IStarRatingOnHoverEvent } from './star-rating.structs';
 export declare class StarRatingController implements ng.IComponentController, IStarRatingCompBindings {
     static DefaultClassEmpty: string;
     static DefaultClassHalf: string;
@@ -121,4 +121,12 @@ export declare class StarRatingController implements ng.IComponentController, IS
     protected onStarClicked(rating: number): void;
     protected onStarHover(rating: number): void;
     protected interactionPossible(): boolean;
+    /**
+     * Get the closest matching element up the DOM tree.
+     * @private
+     * @param  {Element} elem     Starting element
+     * @param  {String}  selector Selector to match against
+     * @return {Boolean|Element}  Returns null if not match found
+     */
+    protected getClosest(elem: any, selector: any): any;
 }

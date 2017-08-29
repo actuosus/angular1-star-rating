@@ -8,42 +8,42 @@ import {
     , starRatingStarSpace
     , IStarRatingOnClickEvent
     , IStarRatingOnUpdateEvent, IStarRatingOnHoverEvent
-} from "star-rating.structs"
+} from './star-rating.structs';
 
 export class StarRatingController implements ng.IComponentController, IStarRatingCompBindings {
 
-    static DefaultClassEmpty: string = "default-star-empty-icon";
+    static DefaultClassEmpty: string = 'default-star-empty-icon';
 
-    static DefaultClassHalf: string = "default-star-half-icon";
+    static DefaultClassHalf: string = 'default-star-half-icon';
 
-    static DefaultClassFilled: string = "default-star-filled-icon";
+    static DefaultClassFilled: string = 'default-star-filled-icon';
 
     static DefaultNumOfStars: number = 5;
 
     static DefaultShowHoverStars:boolean = false;
 
-    static DefaultSize: starRatingSizes = "medium";
+    static DefaultSize: starRatingSizes = 'medium';
 
-    static DefaultSpeed: starRatingSpeed = "noticeable";
+    static DefaultSpeed: starRatingSpeed = 'noticeable';
 
-    static DefaultLabelPosition: starRatingPosition = "left";
+    static DefaultLabelPosition: starRatingPosition = 'left';
 
     static DefaultLabelHidden: boolean = false;
 
-    static DefaultStarType: starRatingStarTypes = "svg";
+    static DefaultStarType: starRatingStarTypes = 'svg';
 
-    static DefaultAssetsPath: string = "assets/images/";
+    static DefaultAssetsPath: string = 'assets/images/';
 
-    static DefaultSvgPath: string = StarRatingController.DefaultAssetsPath + "star-rating.icons.svg";
-    static DefaultSvgEmptySymbolId: string = "star-empty";
-    static DefaultSvgHalfSymbolId: string = "star-half";
-    static DefaultSvgFilledSymbolId: string = "star-filled";
+    static DefaultSvgPath: string = StarRatingController.DefaultAssetsPath + 'star-rating.icons.svg';
+    static DefaultSvgEmptySymbolId: string = 'star-empty';
+    static DefaultSvgHalfSymbolId: string = 'star-half';
+    static DefaultSvgFilledSymbolId: string = 'star-filled';
 
-    static DefaultSvgPathEmpty: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgEmptySymbolId;
+    static DefaultSvgPathEmpty: string = StarRatingController.DefaultSvgPath + '#' + StarRatingController.DefaultSvgEmptySymbolId;
 
-    static DefaultSvgPathHalf: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgHalfSymbolId;
+    static DefaultSvgPathHalf: string = StarRatingController.DefaultSvgPath + '#' + StarRatingController.DefaultSvgHalfSymbolId;
 
-    static DefaultSvgPathFilled: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgFilledSymbolId;
+    static DefaultSvgPathFilled: string = StarRatingController.DefaultSvgPath + '#' + StarRatingController.DefaultSvgFilledSymbolId;
 
 
     /**
